@@ -32,5 +32,6 @@ namespace API.Controllers
             return await _dataContext.Games.FindAsync(id);
 
         }
+
     }
 }

@@ -477,3 +477,6 @@ $RECYCLE.BIN/
 *.lnk
 API/appsettings.json
 API/appsettings.Development.json
+client/ssl/server.crt
+.gitignore
+client/ssl/server.key
