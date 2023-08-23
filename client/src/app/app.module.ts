@@ -9,6 +9,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { SliderModule } from './modules/slider.module';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { DetailsComponent } from './details/details.component';
+import { DealsComponent } from './deals/deals.component';
+import { BrowseComponent } from './browse/browse.component';
 
 
 @NgModule({
@@ -17,6 +20,9 @@ import { HomeComponent } from './home/home.component';
     NavMenuComponent,
     FooterComponent,
     HomeComponent,
+    DetailsComponent,
+    DealsComponent,
+    BrowseComponent,
   ],
   imports: [
     BrowserModule,

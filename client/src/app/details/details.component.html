@@ -1,0 +1,43 @@
+<div class="container-fluid p-0 text-white   detail-container">
+    <div class="row img-box">
+        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202308/1519/95cce955dc59d04e2ea5ab624a823ace14e9c5f7e24dfb8f.png"
+            alt="">
+    </div>
+    <div class="row pt-4 detail-box ">
+        <div class="col-md-5 p-5">
+            <div class="d-flex flex-column justify-content-center p-4 gap-3 bg-dark   pricetable">
+                <h1>{{game.title}}</h1>
+                <p>Larian Studios</p>
+                <h3>{{game.price}} €</h3>
+                <button class="btn btn-danger">Purchase</button>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 d-flex align-items-start justify-content-center order-md-2">
+            <img class="w-50" src="assets/images/gettagameLogotrans500x500Whitecropped.svg" alt="">
+        </div>
+
+        <div class="col d-md-flex gap-5 order-md-1 justify-content-center">
+            <ul class="list-group">
+                <li>Bulletpoint 1</li>
+                <li>Bulletpoint 2</li>
+                <li>Bulletpoint 3</li>
+            </ul>
+
+            <ul class="list-group">
+
+                <li>Bulletpoint 4</li>
+                <li>Bulletpoint 5</li>
+                <li>Bulletpoint 6</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="row gameinfo d-flex flex-column justify-content-center align-items-center   ">
+        <div class="col-md-6 p-5">
+            <h2 class="text-center">Game and Legal Info</h2>
+            <p class="bg-dark p-5 opacity-75">{{game.description}}</p>
+        </div>
+    </div>

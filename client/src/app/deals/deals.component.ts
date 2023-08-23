@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { Game } from '../models/games';
-import { HttpClient } from '@angular/common/http';
 import { GamesService } from '../services/games.service';
-import { Router } from '@angular/router';
+import { Game } from '../models/games';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-deals',
+  templateUrl: './deals.component.html',
+  styleUrls: ['./deals.component.css']
 })
-export class HomeComponent {
+export class DealsComponent {
   games: Game[] = [];
   sportsGames: Game[] = [];
-  
-  routerLink: string = "product/details/";
 
   constructor(private gamesService: GamesService) { }
 
@@ -32,4 +28,3 @@ export class HomeComponent {
     });
   }
 }
-

@@ -14,7 +14,7 @@
 <div class="container-fluid p-5">
     <div class="row g-3 justify-content-center ">
         <div class="col-6 col-md-4 col-lg-3  " *ngFor="let game of games">
-            <a [routerLink]="'product/details/' + game.id">
+            <a href="/">
                 <img [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="" width="100%">
@@ -28,7 +28,7 @@
 
     <swiper-container swiperElement init="false">
         <swiper-slide *ngFor="let game of games" class="slide">
-            <a [routerLink]="'product/details/' + game.id">
+            <a href="https://localhost:4200/game/details/id">
                 <img width="100%" [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="randomized image">
@@ -43,7 +43,7 @@
 
     <swiper-container swiperElement init="false">
         <swiper-slide *ngFor="let game of games" class="slide">
-            <a [routerLink]="'product/details/' + game.id">
+            <a href="https://localhost:4200/game/details/id">
                 <img width="100%" [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="randomized image">
@@ -58,7 +58,7 @@
 
     <swiper-container swiperElement init="false">
         <swiper-slide *ngFor="let game of games" class="slide">
-            <a [routerLink]="'product/details/' + game.id">
+            <a href="https://localhost:4200/game/details/id">
                 <img width="100%" [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="randomized image">
@@ -73,7 +73,7 @@
 
     <swiper-container swiperElement init="false">
         <swiper-slide *ngFor="let game of sportsGames" class="slide">
-            <a [routerLink]="'product/details/' + game.id">
+            <a href="https://localhost:4200/game/details/id">
                 <img width="100%" [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="randomized image">

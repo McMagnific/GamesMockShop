@@ -11,4 +11,12 @@ export class GamesService {
   getGames() {
     return this.http.get<Game[]>('https://localhost:5001/api/games');
   }
+
+  getGame(id: number) {
+    return this.http.get<Game>('https://localhost:5001/api/games/product/' + id);
+  }
+
+  getGamesByGenre(genre: string) {
+    return this.http.get<Game[]>('https://localhost:5001/api/games/category/' + genre);
+  }
 }

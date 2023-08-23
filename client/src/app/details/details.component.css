@@ -1,0 +1,29 @@
+.detail-container {
+    overflow: hidden;
+}
+
+.img-box {
+    height: 50vh;
+
+}
+
+.img-box img {
+    border-radius: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.pricetable {
+    margin-top: -250px;
+    min-height: 350px;
+    opacity: 0.9;
+}
+
+.detail-box,
+.gameinfo {
+    background-color: black;
+
+}
