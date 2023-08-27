@@ -7,11 +7,10 @@ import { DealsComponent } from './deals/deals.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'latest', component: HomeComponent },
+  { path: 'product/details/:id', component: DetailsComponent },
   { path: 'browse', component: BrowseComponent },
   { path: 'deals', component: DealsComponent },
   { path: 'details', component: DetailsComponent },
-  { path: 'product/details/:id', component: DetailsComponent },
   { path: '**', component: HomeComponent, pathMatch: 'full' }
 ];
 

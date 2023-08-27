@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { DealsComponent } from './deals/deals.component';
 import { BrowseComponent } from './browse/browse.component';
+import { UserloginComponent } from './user/userlogin/userlogin.component';
+import { UserregisterComponent } from './user/userregister/userregister.component';
+import { UserdetailsComponent } from './user/userdetails/userdetails.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { BrowseComponent } from './browse/browse.component';
     DetailsComponent,
     DealsComponent,
     BrowseComponent,
+    UserloginComponent,
+    UserregisterComponent,
+    UserdetailsComponent,
   ],
   imports: [
     BrowserModule,
