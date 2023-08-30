@@ -12,9 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { DealsComponent } from './deals/deals.component';
 import { BrowseComponent } from './browse/browse.component';
-import { UserloginComponent } from './user/userlogin/userlogin.component';
-import { UserregisterComponent } from './user/userregister/userregister.component';
-import { UserdetailsComponent } from './user/userdetails/userdetails.component';
+import { LoginComponent } from './customer/login/login.component';
+import { RegisterComponent } from './customer/register/register.component';
+import { CustomerdetailsComponent } from './customer/customerdetails/customerdetails.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,16 +27,18 @@ import { UserdetailsComponent } from './user/userdetails/userdetails.component';
     DetailsComponent,
     DealsComponent,
     BrowseComponent,
-    UserloginComponent,
-    UserregisterComponent,
-    UserdetailsComponent,
+    LoginComponent,
+    RegisterComponent,
+    CustomerdetailsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SliderModule
+    SliderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

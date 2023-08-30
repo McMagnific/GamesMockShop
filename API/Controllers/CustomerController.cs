@@ -47,6 +47,12 @@ namespace API.Controllers
             var customer = new Customer
             {
                 Username = registerDto.Username,
+                Name = registerDto.Name,
+                Birthday = registerDto.Birthday.ToString(),
+                Country = registerDto.Country,
+                Zipcode = registerDto.Zipcode,
+                Street = registerDto.Street,
+                City = registerDto.City,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -57,13 +63,11 @@ namespace API.Controllers
             {
                 Username = customer.Username,
                 Token = _tokenService.CreateToken(customer)
-            });
 
+            });
         }
 
-
         [HttpPost("login")]
-
         public async Task<ActionResult<CustomerDto>> Login(LoginDto loginDto)
         {
             var customer = await _dataContext.Customers.FirstOrDefaultAsync(x => x.Username == loginDto.Username);
@@ -79,21 +83,18 @@ namespace API.Controllers
 
             }
 
-
             return Ok(new CustomerDto
             {
                 Username = customer.Username,
                 Token = _tokenService.CreateToken(customer)
+
             });
-
         }
-
-
-
 
         private async Task<bool> DoesUserExist(string username)
         {
             return await _dataContext.Customers.AnyAsync(x => x.Username.Equals(username));
+            
         }
     }
 }

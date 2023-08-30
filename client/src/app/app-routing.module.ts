@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { BrowseComponent } from './browse/browse.component';
 import { DetailsComponent } from './details/details.component';
 import { DealsComponent } from './deals/deals.component';
+import { LoginComponent } from './customer/login/login.component';
+import { RegisterComponent } from './customer/register/register.component';
+import { CustomerdetailsComponent } from './customer/customerdetails/customerdetails.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,6 +14,9 @@ const routes: Routes = [
   { path: 'browse', component: BrowseComponent },
   { path: 'deals', component: DealsComponent },
   { path: 'details', component: DetailsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'customer/details', component: CustomerdetailsComponent },
   { path: '**', component: HomeComponent, pathMatch: 'full' }
 ];
 
