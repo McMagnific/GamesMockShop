@@ -11,5 +11,8 @@ namespace API.Data
 
         public DbSet<Game> Games { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        
+        // public DbSet<Order> Orders { get; set; }
     }
 }

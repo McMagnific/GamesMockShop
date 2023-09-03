@@ -3,14 +3,16 @@ img {
 }
 
 a {
+    cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
 
-a:hover {
+ a:hover {
     filter: brightness(90%);
 }
 
 ul a:hover {
     filter: brightness(50%);
 }
+

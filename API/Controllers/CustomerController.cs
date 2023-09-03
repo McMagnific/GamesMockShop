@@ -11,9 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace API.Controllers
 {
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseController
     {
         private readonly DataContext _dataContext;
         private readonly ITokenService _tokenService;
@@ -61,6 +59,7 @@ namespace API.Controllers
 
             return Ok(new CustomerDto
             {
+                Id = customer.Id,
                 Username = customer.Username,
                 Token = _tokenService.CreateToken(customer)
 
@@ -85,6 +84,7 @@ namespace API.Controllers
 
             return Ok(new CustomerDto
             {
+                Id = customer.Id,
                 Username = customer.Username,
                 Token = _tokenService.CreateToken(customer)
 
@@ -94,7 +94,7 @@ namespace API.Controllers
         private async Task<bool> DoesUserExist(string username)
         {
             return await _dataContext.Customers.AnyAsync(x => x.Username.Equals(username));
-            
+
         }
     }
 }

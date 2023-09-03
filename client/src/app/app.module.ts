@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule, BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -15,7 +21,10 @@ import { BrowseComponent } from './browse/browse.component';
 import { LoginComponent } from './customer/login/login.component';
 import { RegisterComponent } from './customer/register/register.component';
 import { CustomerdetailsComponent } from './customer/customerdetails/customerdetails.component';
-import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
+import { ReceiptComponent } from './receipt/receipt.component';
+
+
 
 
 @NgModule({
@@ -30,6 +39,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     CustomerdetailsComponent,
+    CartComponent,
+    ReceiptComponent,
 
   ],
   imports: [
@@ -38,9 +49,13 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     SliderModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
+    BsDropdownModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

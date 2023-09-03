@@ -1,4 +1,4 @@
-<div class="container">
+<div class="nav-menu container-fluid sticky-top bg-white">
   <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
     <div class="col-md-3 mb-2 mb-md-0">
       <img routerLink="/" src="assets/images/gettagameLogotranscropped.svg" alt="logo" style="width: 150px;">
@@ -15,8 +15,40 @@
       <button type="button" class="btn btn-primary" routerLink="/register">Sign-up</button>
     </div>
 
-    <div class="col-md-3 text-end" *ngIf="customerService.currentUser$ | async">
-      <button type="button" class="btn btn-outline-primary me-2" (click)="logout()">Logout</button>
+    <!-- Logged in Elements -->
+    <div class="col-md-3 d-flex justify-content-end align-items-center gap-3"
+      *ngIf="customerService.currentUser$ | async">
+
+      <a routerLink="/cart">
+        <fa-icon [icon]="faCartShopping"></fa-icon>
+      </a>
+
+
+      <!-- Dropdown Menu -->
+      <div class="btn-group" dropdown placement="bottom right">
+        <a id="button-animated" dropdownToggle>
+          <img src="assets/images/placeholdersquare/image-placeholder-500x500.jpg" alt="">
+        </a>
+
+        <div id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right mt-3">
+          <a class="mb-4 dropdown-item" href="">
+            <img src="assets/images/placeholdersquare/image-placeholder-500x500.jpg" alt="">
+            <span>{{username}}</span>
+          </a>
+
+          <ul class="list-unstyled">
+            <li>
+              <a class="dropdown-item" routerLink="/cart">Current Cart</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item">Account Information</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </header>
 </div>

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Game } from '../models/games';
-import { HttpClient } from '@angular/common/http';
 import { GamesService } from '../services/games.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   games: Game[] = [];
   sportsGames: Game[] = [];
-  
+
   routerLink: string = "product/details/";
 
   constructor(private gamesService: GamesService) { }
@@ -23,8 +21,8 @@ export class HomeComponent {
       next: res => this.games = res,
       error: err => console.log(err),
 
-    }); 
-    
+    });
+
     this.gamesService.getGamesByGenre("sport").subscribe({
       next: res => this.sportsGames = res,
       error: err => console.log(err),

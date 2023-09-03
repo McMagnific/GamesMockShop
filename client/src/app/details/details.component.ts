@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GamesService } from '../services/games.service';
 import { Game } from '../models/games';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { OrderService } from '../services/order.service';
+import { CustomerService } from '../services/customer.service';
+import { Cart } from '../models/cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -10,7 +13,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  @Input() id: String = '';
+  @Input() id: string = '';
+  userId: number = 0;
 
   game: Game = {
     id: 0,
@@ -20,15 +24,35 @@ export class DetailsComponent implements OnInit {
     image_link: "/assets/images/placeholdersquare/bg3square.avif"
   };
 
-  constructor(private gamesService: GamesService, private route: ActivatedRoute) { }
+  constructor(private gamesService: GamesService, public customerService: CustomerService, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
-
 
     this.gamesService.getGame(+this.id).subscribe({
       next: res => this.game = res,
       error: err => console.log(err),
 
+    });
+
+    this.customerService.currentUser$.subscribe({
+      next: res => {
+        if (res) this.userId = res.id
+      },
+      error: err => console.log(err, "User not found")
+
+    })
+  }
+
+  addToCart() {
+    var cartItem: Cart = {
+      customerId: this.userId,
+      gameId: this.game.id,
+      quantity: 1
+    }
+
+    this.orderService.addToCart(cartItem).subscribe({
+      next: () => this.router.navigateByUrl('/cart'),
+      error: err => console.log(err)
     });
   }
 }
