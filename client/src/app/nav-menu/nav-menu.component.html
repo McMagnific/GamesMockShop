@@ -1,11 +1,23 @@
 <div class="nav-menu container-fluid sticky-top bg-white">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
-    <div class="col-md-3 mb-2 mb-md-0">
-      <img routerLink="/" src="assets/images/gettagameLogotranscropped.svg" alt="logo" style="width: 150px;">
+  <header class="d-flex flex-wrap align-items-center  justify-content-between py-3 mb-4">
+    <div class="col-md-3 mb-2 mb-md-0 ">
+      <img routerLink="/" src="assets/images/gettagameLogotranscropped.svg" alt="logo"
+        style="width: 150px; cursor: pointer;">
     </div>
 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a class="nav-link px-2 link-secondary" routerLink="/">Home</a></li>
+    <div class="d-flex d-md-none" dropdown>
+      <a dropdownToggle>
+        <fa-icon [icon]="faBars"></fa-icon>
+      </a>
+      <ul id="dropdown-basic" *dropdownMenu class="container-fluid dropdown-menu border-0 ">
+        <li><a class="dropdown-item " routerLink="/">Home</a></li>
+        <li><a class="dropdown-item" routerLink="/deals" routerLinkActive="active-menu-item">Deals</a></li>
+        <li><a class="dropdown-item" routerLink="/browse" routerLinkActive="active-menu-item">Browse</a></li>
+      </ul>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 d-none d-md-flex">
+      <li><a class="nav-link px-2 link-secondary " routerLink="/">Home</a></li>
       <li><a class="nav-link px-2" routerLink="/deals" routerLinkActive="active-menu-item">Deals</a></li>
       <li><a class="nav-link px-2" routerLink="/browse" routerLinkActive="active-menu-item">Browse</a></li>
     </ul>
@@ -22,7 +34,6 @@
       <a routerLink="/cart">
         <fa-icon [icon]="faCartShopping"></fa-icon>
       </a>
-
 
       <!-- Dropdown Menu -->
       <div class="btn-group" dropdown placement="bottom right">

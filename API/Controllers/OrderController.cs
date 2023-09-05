@@ -16,7 +16,7 @@ namespace API.Controllers
         }
 
         [HttpGet("getcart/{id}")]
-        public async Task<ActionResult<CartDto>> GetCart(int id)
+        public async Task<ActionResult<Cart>> GetCart(int id)
         {
             var cart = await _dataContext.Carts.Where(x => x.CustomerId == id).ToListAsync();
             return cart == null ? NotFound() : Ok(cart);
@@ -38,6 +38,20 @@ namespace API.Controllers
             await _dataContext.SaveChangesAsync();
 
             return Ok(orderDto);
+
+        }
+
+        [HttpDelete("removecartrecord/{id}")]
+        public async Task<ActionResult<CartDto>> RemoveCartRecord(int id)
+        {
+
+            var removableRecord = _dataContext.Carts.Remove(_dataContext.Carts.Find(id));
+
+            if (removableRecord == null) return NoContent();
+
+            await _dataContext.SaveChangesAsync();
+
+            return Accepted();
 
         }
 

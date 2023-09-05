@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavMenuComponent implements OnInit {
   faCartShopping = faCartShopping;
+  faBars = faBars;
   username: string | undefined = "Username";
   showSideNav = "hidden";
 
