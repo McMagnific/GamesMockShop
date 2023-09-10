@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule, BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 
 import { AppComponent } from './app.component';
@@ -52,8 +52,8 @@ import { ReceiptComponent } from './receipt/receipt.component';
     FormsModule,
     FontAwesomeModule,
     BsDropdownModule,
-    MatSidenavModule,
-    MatButtonModule
+    AlertModule,
+
   ],
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }],
   bootstrap: [AppComponent],

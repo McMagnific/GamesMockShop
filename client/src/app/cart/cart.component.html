@@ -29,7 +29,7 @@
                             </td>
 
                             <td class="align-middle">
-                                <p class="mb-0" style="font-weight: 500;">{{game.price}} €</p>
+                                <p class="mb-0" style="font-weight: 500;white-space: nowrap">{{game.price}} €</p>
                             </td>
 
                             <td class="align-middle">
@@ -42,107 +42,140 @@
                 </table>
 
                 <!-- Payment Options and Credentials -->
-                <div class="  mb-5 mb-lg-0 border-0">
-                    <div class=" p-4 ">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                                <form>
-                                    <div class="d-flex flex-row pb-3">
-                                        <div class="d-flex align-items-center pe-2">
-                                            <input class="form-check-input" type="radio" name="creditcard"
-                                                id="creditcard" value="creditcard" aria-label="creditcard" checked />
+
+                <alert type="danger" *ngIf="inputInvalid" class="alert">
+                    <p> <strong>Something went wrong</strong>
+                        <br>
+                        You need to do the following:
+                    </p>
+                    <p *ngIf="pickpayment">
+                        You have to choose your <strong> payment method </strong>.
+                    </p>
+
+                    <p *ngIf="orderModel.paymethod != 'paypal'">
+                        Please fill out the required fields to proceed.
+                    </p>
+                </alert>
+
+                <div class="mb-5 mb-lg-0 border-0">
+                    <form #paymentform="ngForm" ngNativeValidate (ngSubmit)="onSubmit()">
+                        <div class=" p-4 ">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                                    <fieldset>
+                                        <div class="d-flex flex-row pb-3">
+                                            <div class="d-flex align-items-center pe-2">
+                                                <input [(ngModel)]="orderModel.paymethod" class="form-check-input"
+                                                    type="radio" name="creditcard" id="creditcard" value="creditcard"
+                                                    aria-label="creditcard" [required]="pickpayment"
+                                                    (click)="choosepayment()" />
+                                            </div>
+
+                                            <div class="rounded border w-100 p-3">
+                                                <p class="d-flex align-items-center mb-0">
+                                                    Credit Card
+                                                </p>
+                                            </div>
                                         </div>
 
-                                        <div class="rounded border w-100 p-3">
-                                            <p class="d-flex align-items-center mb-0">
-                                                Credit Card
-                                            </p>
-                                        </div>
-                                    </div>
+                                        <div class="d-flex flex-row pb-3">
+                                            <div class="d-flex align-items-center pe-2">
+                                                <input [(ngModel)]="orderModel.paymethod" class="form-check-input"
+                                                    type="radio" name="debitcard" id="debitcard" value="debitcard"
+                                                    aria-label="debitcard" [required]="pickpayment"
+                                                    (click)="choosepayment()" />
+                                            </div>
 
-                                    <div class="d-flex flex-row pb-3">
-                                        <div class="d-flex align-items-center pe-2">
-                                            <input class="form-check-input" type="radio" name="debitcard"
-                                                id="debitcard" value="debitcard" aria-label="debitcard" />
-                                        </div>
-
-                                        <div class="rounded border w-100 p-3">
-                                            <p class="d-flex align-items-center mb-0">
-                                                Debit Card
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row">
-                                        <div class="d-flex align-items-center pe-2">
-                                            <input class="form-check-input" type="radio" name="paypal"
-                                                id="paypal" value="paypal" aria-label="paypal" />
+                                            <div class="rounded border w-100 p-3">
+                                                <p class="d-flex align-items-center mb-0">
+                                                    Debit Card
+                                                </p>
+                                            </div>
                                         </div>
 
-                                        <div class="rounded border w-100 p-3">
-                                            <p class="d-flex align-items-center mb-0">
-                                                PayPal
-                                            </p>
+                                        <div class="d-flex flex-row">
+                                            <div class="d-flex align-items-center pe-2">
+                                                <input [(ngModel)]="orderModel.paymethod" class="form-check-input"
+                                                    type="radio" name="paypal" id="paypal" value="paypal"
+                                                    aria-label="paypal" [required]="pickpayment"
+                                                    (click)="choosepayment()" />
+                                            </div>
+
+                                            <div class="rounded border w-100 p-3">
+                                                <p class="d-flex align-items-center mb-0">
+                                                    PayPal
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div>
+                                    </fieldset>
+                                </div>
 
-                            <div class="col-md-6 col-lg-4 col-xl-6 ">
-                                <div class="row ">
-                                    <div class="col-12 col-xl-6">
+                                <div class="col-md-6 col-lg-4 col-xl-6 ">
+                                    <div class="row ">
+                                        <div class="col-12 col-xl-6">
 
-                                        <div class="form-floating mb-3 ">
-                                            <input name="nameoncard" id="nameoncard" class="form-control" type="text"
-                                                placeholder="Name on card">
-                                            <label for="nameoncard" class="form-label">Name on card</label>
+                                            <div *ngIf="orderModel.paymethod != 'paypal'" class="form-floating mb-3 ">
+                                                <input name="nameoncard" id="nameoncard" class="form-control"
+                                                    type="text" placeholder="Name on card" required
+                                                    [(ngModel)]="orderModel.name" #nameoncard="ngModel" minlength="6">
+                                                <label for="nameoncard" class="form-label">Name on card</label>
+                                            </div>
+
+                                            <div *ngIf="orderModel.paymethod == 'creditcard'"
+                                                class="form-floating mb-3 ">
+                                                <input name="expiration" id="expiration" class="form-control"
+                                                    type="text" placeholder="Expiration" required
+                                                    [(ngModel)]="orderModel.expdate" #expdate="ngModel">
+                                                <label for="expiration" class="form-label">Expiration</label>
+                                            </div>
+
                                         </div>
 
-                                        <div class="form-floating mb-3 ">
-                                            <input name="expiration" id="expiration" class="form-control" type="text"
-                                                placeholder="Expiration">
-                                            <label for="expiration" class="form-label">Expiration</label>
-                                        </div>
+                                        <div class="col-12 col-xl-6">
 
-                                    </div>
+                                            <div *ngIf="orderModel.paymethod != 'paypal'" class="form-floating mb-3 ">
+                                                <input name="cardnumber" id="cardnumber" class="form-control"
+                                                    type="text" placeholder="Card Number" required
+                                                    [(ngModel)]="orderModel.cardnumber" #cardnumber="ngModel">
+                                                <label
+                                                    *ngIf="orderModel.paymethod != 'paypal' && orderModel.paymethod != 'debitcard'"
+                                                    for="cardnumber" class="form-label">Card Number</label>
+                                                <label *ngIf="orderModel.paymethod == 'debitcard'" for="cardnumber"
+                                                    class="form-label">IBAN</label>
+                                            </div>
 
-                                    <div class="col-12 col-xl-6">
-
-                                        <div class="form-floating mb-3 ">
-                                            <input name="cardnumber" id="cardnumber" class="form-control" type="text"
-                                                placeholder="Card Number">
-                                            <label for="cardnumber" class="form-label">Card Number</label>
-                                        </div>
-
-                                        <div class="form-floating mb-3 ">
-                                            <input name="cvv" id="cvv" class="form-control" type="text"
-                                                placeholder="CVV" minlength="3" maxlength="3">
-                                            <label for="cvv" class="form-label">CVV</label>
+                                            <div *ngIf="orderModel.paymethod == 'creditcard'"
+                                                class="form-floating mb-3 ">
+                                                <input name="cvv" id="cvv" class="form-control" type="text"
+                                                    placeholder="CVV" minlength="3" maxlength="3"
+                                                    [(ngModel)]="orderModel.cvv" required #cvv="ngModel">
+                                                <label for="cvv" class="form-label">CVV</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-xl-3">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Discount</p>
-                                    <p class="mb-2">0.00 €</p>
-                                </div>
-
-                                <hr class="my-4">
-
-                                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
-                                    <p class="mb-2">Total</p>
-                                    <p class="mb-2">{{totalPrice.toFixed(2)}} €</p>
-                                </div>
-
-                                <button type="button" class="btn btn-primary btn-block btn-lg">
+                                <div class="col-lg-4 col-xl-3">
                                     <div class="d-flex justify-content-between">
-                                        <span>Buy Games</span>
+                                        <p class="mb-2">Discount</p>
+                                        <p class="mb-2">0.00 €</p>
                                     </div>
-                                </button>
+
+                                    <hr class="my-4">
+                                    <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                                        <p class="mb-2">Total</p>
+                                        <output name="totalprice">{{totalPrice.toFixed(2)}} €</output>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg"
+                                        (click)="checkValidation()">
+
+                                        <span *ngIf="orderModel.paymethod != 'paypal'"> Buy Games</span>
+                                        <span *ngIf="orderModel.paymethod == 'paypal'"> Proceed to Paypal</span>
+
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

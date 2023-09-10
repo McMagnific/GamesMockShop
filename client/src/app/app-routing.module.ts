@@ -8,10 +8,12 @@ import { LoginComponent } from './customer/login/login.component';
 import { RegisterComponent } from './customer/register/register.component';
 import { CustomerdetailsComponent } from './customer/customerdetails/customerdetails.component';
 import { CartComponent } from './cart/cart.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'product/details/:id', component: DetailsComponent },
+  { path: 'receipt', component: ReceiptComponent },
   { path: 'browse', component: BrowseComponent },
   { path: 'deals', component: DealsComponent },
   { path: 'details', component: DetailsComponent },

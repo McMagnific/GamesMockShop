@@ -5,6 +5,7 @@ import { CartItem } from '../models/cart';
 import { GamesService } from '../services/games.service';
 import { Game } from '../models/games';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,13 +13,18 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  faTrash = faTrash;
   userId: number = 0;
+
   cartItems: CartItem[] = [];
   games: Game[] = [];
+  orderModel: any = {};
   totalPrice: number = 0;
-  faTrash = faTrash;
 
-  constructor(private customerService: CustomerService, private orderService: OrderService, private gamesService: GamesService) { }
+  pickpayment: boolean = true;
+  inputInvalid = false;
+
+  constructor(private customerService: CustomerService, private orderService: OrderService, private gamesService: GamesService, private router: Router) { }
 
   ngOnInit(): void {
     this.customerService.currentUser$.subscribe({
@@ -59,6 +65,23 @@ export class CartComponent implements OnInit {
       error: err => console.log("An error ocurred:" + err)
 
     })
+  }
+
+  onSubmit() {
+    this.inputInvalid = false;
+    this.orderModel.totalprice = this.totalPrice;
+    this.router.navigateByUrl("/receipt");
+    console.log(this.orderModel);
+  }
+
+  choosepayment() {
+    if (this.pickpayment == true) this.pickpayment = false;
+  }
+
+  checkValidation() {
+    if (this.inputInvalid == false)
+      this.inputInvalid = true;
+
   }
 }
 

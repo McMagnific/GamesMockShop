@@ -4,18 +4,18 @@
             alt="">
     </div>
 
-    <form #loginForm="ngForm" (ngSubmit)="register()" class="d-flex justify-content-center flex-column gap-2  ">
+    <form ngNativeValidate #loginForm="ngForm" (ngSubmit)="register()" class="d-flex justify-content-center flex-column gap-2  ">
         <div class="form-group">
 
             <div class="form-floating">
                 <input [(ngModel)]="model.username" name="username" id="username" class="form-control" type="text"
-                    placeholder="Enter username">
+                    placeholder="Enter username" required>
                 <label for="username" class="form-label">Username</label>
             </div>
 
             <div class="form-floating">
                 <input [(ngModel)]="model.password" name="password" id="password" class="form-control" type="password"
-                    placeholder="Enter password">
+                    placeholder="Enter password" required>
                 <label for="password" class="form-label">Enter your password</label>
             </div>
         </div>
@@ -23,20 +23,20 @@
         <div class="form-group">
             <div class="form-floating">
                 <input [(ngModel)]="model.name" name="name" id="name" class="form-control" type="text"
-                    placeholder="Enter your full name">
+                    placeholder="Enter your full name" required>
                 <label for="name" class="form-label">Enter your full name</label>
             </div>
 
             <div class="form-floating">
                 <input [(ngModel)]="model.birthday" name="dateofbirth" id="dateofbirth" class="form-control" type="date"
-                    placeholder="Enter your full name">
+                    placeholder="Enter your full name" required>
                 <label for="dateofbirth" class="form-label">Date of Birth</label>
             </div>
         </div>
 
         <div class="form-floating">
             <select [(ngModel)]="model.country" name="country" id="country" class="form-control"
-                placeholder="Choose your Country">
+                placeholder="Choose your Country" required>
                 <option>select country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Aland Islands</option>
@@ -298,7 +298,7 @@
         <div class="form-group">
             <div class="form-floating">
                 <input [(ngModel)]="model.zipcode" name="zipcode" id="zipcode" class="form-control" type="number"
-                    placeholder="Enter zipcode">
+                    placeholder="Enter zipcode" required>
                 <label for="zipcode" class="form-label">Zipcode</label>
             </div>
 
@@ -322,3 +322,4 @@
         <button class="btn"  routerLink="/login">Login</button>
     </div>
 </div>
+

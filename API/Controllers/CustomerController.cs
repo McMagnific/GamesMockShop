@@ -25,10 +25,10 @@ namespace API.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<UserDto>> GetuserById(int id)
         {
-            var customers = await _dataContext.Customers.ToListAsync();
-            return Ok(customers);
+            var user = await _dataContext.Customers.FindAsync(id);
+            return Ok(user);
 
         }
 
