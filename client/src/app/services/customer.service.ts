@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { User, UserInformation } from '../models/user';
 import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
@@ -49,5 +49,9 @@ export class CustomerService {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
 
+  }
+
+  getUser(id: number){
+   return this.http.get<UserInformation>("https://localhost:5001/api/customer/user/" + id);
   }
 }

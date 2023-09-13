@@ -7,6 +7,7 @@ using System.Text;
 using API.DTOs;
 using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace API.Controllers
 {
@@ -23,11 +24,22 @@ namespace API.Controllers
 
         }
 
-        [Authorize]
-        [HttpGet]
+        [HttpGet("user/{id}")]
         public async Task<ActionResult<UserDto>> GetuserById(int id)
         {
-            var user = await _dataContext.Customers.FindAsync(id);
+            var findUser = await _dataContext.Customers.FindAsync(id);
+
+            UserDto user = new UserDto()
+            {
+                Id = findUser.Id,
+                Name = findUser.Name,
+                Username = findUser.Username,
+                Birthday = findUser.Birthday,
+                Country = findUser.Country,
+                Zipcode = findUser.Zipcode,
+                Street = findUser.Street,
+                City = findUser.City
+            };
             return Ok(user);
 
         }

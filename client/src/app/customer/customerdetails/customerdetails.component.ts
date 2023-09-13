@@ -7,17 +7,25 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./customerdetails.component.css']
 })
 export class CustomerdetailsComponent implements OnInit {
-  model: any = {}
+  userId: number | undefined = undefined;
+  userInformation: any = {};
 
   constructor(private customerService: CustomerService) {
 
   }
   ngOnInit(): void {
     this.customerService.currentUser$.subscribe({
-      next: res => this.model = res,
+      next: res => this.userId = res?.id,
       error: err => console.log(err)
     })
 
+    this.customerService.getUser(12).subscribe({
+      next: res => {
+      this.userInformation = res,
+      console.log(res);
+      },  
+      error: err => console.log(err)
+    })
 
   }
 

@@ -39,7 +39,7 @@
             <div class="form-group">
 
                 <div class="form-floating">
-                    <input [(ngModel)]="model.username" name="username" id="username" class="form-control" type="text"
+                    <input [(ngModel)]="userInformation.username" name="username" id="username" class="form-control" type="text"
                         placeholder="Enter username" required>
                     <label for="username" class="form-label">Username</label>
                 </div>
@@ -47,20 +47,20 @@
 
             <div class="form-group">
                 <div class="form-floating">
-                    <input [(ngModel)]="model.name" name="name" id="name" class="form-control" type="text"
+                    <input [(ngModel)]="userInformation.name" name="name" id="name" class="form-control" type="text"
                         placeholder="Enter your full name" required>
                     <label for="name" class="form-label">Enter your full name</label>
                 </div>
 
                 <div class="form-floating">
-                    <input [(ngModel)]="model.birthday" name="dateofbirth" id="dateofbirth" class="form-control"
+                    <input [(ngModel)]="userInformation.birthday" name="dateofbirth" id="dateofbirth" class="form-control"
                         type="date" placeholder="Enter your full name" required>
                     <label for="dateofbirth" class="form-label">Date of Birth</label>
                 </div>
             </div>
 
             <div class="form-floating">
-                <select [(ngModel)]="model.country" name="country" id="country" class="form-control"
+                <select [(ngModel)]="userInformation.country" name="country" id="country" class="form-control"
                     placeholder="Choose your Country" required>
                     <option>select country</option>
                     <option value="AF">Afghanistan</option>
@@ -322,19 +322,19 @@
 
             <div class="form-group">
                 <div class="form-floating">
-                    <input [(ngModel)]="model.zipcode" name="zipcode" id="zipcode" class="form-control" type="number"
+                    <input [(ngModel)]="userInformation.zipcode" name="zipcode" id="zipcode" class="form-control" type="number"
                         placeholder="Enter zipcode" required>
                     <label for="zipcode" class="form-label">Zipcode</label>
                 </div>
 
                 <div class="form-floating">
-                    <input [(ngModel)]="model.street" name="street" id="street" class="form-control" type="text"
+                    <input [(ngModel)]="userInformation.street" name="street" id="street" class="form-control" type="text"
                         placeholder="Enter street">
                     <label for="street" class="form-label">Street</label>
                 </div>
 
                 <div class="form-floating">
-                    <input [(ngModel)]="model.city" name="city" id="city" class="form-control" type="text"
+                    <input [(ngModel)]="userInformation.city" name="city" id="city" class="form-control" type="text"
                         placeholder="Enter city">
                     <label for="city" class="form-label">City</label>
                 </div>
@@ -349,19 +349,19 @@
             class="d-flex justify-content-center flex-column gap-2 ">
 
             <div class="form-floating">
-                <input [(ngModel)]="model.password" name="password" id="password" class="form-control" type="password"
+                <input [(ngModel)]="userInformation.password" name="password" id="password" class="form-control" type="password"
                     placeholder="Enter password" required>
                 <label for="password" class="form-label">Enter your old password</label>
             </div>
 
             <div class="form-floating">
-                <input [(ngModel)]="model.password" name="password" id="password" class="form-control" type="password"
+                <input [(ngModel)]="userInformation.password" name="password" id="password" class="form-control" type="password"
                     placeholder="Enter password" required>
                 <label for="password" class="form-label">Enter your new  password</label>
             </div>
 
             <div class="form-floating">
-                <input [(ngModel)]="model.password" name="password" id="password" class="form-control" type="password"
+                <input [(ngModel)]="userInformation.password" name="password" id="password" class="form-control" type="password"
                     placeholder="Enter password" required>
                 <label for="password" class="form-label">Repeat your new password</label>
             </div>
