@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GamesService } from '../services/games.service';
 import { Game } from '../models/games';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deals',
@@ -10,8 +11,10 @@ import { Game } from '../models/games';
 export class DealsComponent {
   games: Game[] = [];
   sportsGames: Game[] = [];
+  routerLink: string = "product/details/";
 
-  constructor(private gamesService: GamesService) { }
+
+  constructor(private gamesService: GamesService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,5 +29,10 @@ export class DealsComponent {
       error: err => console.log(err),
 
     });
+  }
+
+  toDetailsPage(gameId: number){
+    this.router.navigateByUrl("product/details/" +gameId);
+
   }
 }

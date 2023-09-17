@@ -54,6 +54,20 @@ namespace API.Controllers
             return Accepted();
 
         }
+        [HttpDelete("removecart/{id}")]
+        public async Task<ActionResult> RemoveCart(int id)
+        {
 
+            var removableRecord = _dataContext.Carts.Where(x => x.CustomerId == id);
+
+            _dataContext.Carts.RemoveRange(removableRecord);
+
+            if (removableRecord == null) return NoContent();
+
+            await _dataContext.SaveChangesAsync();
+
+            return Accepted();
+
+        }
     }
 }

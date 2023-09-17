@@ -17,7 +17,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { DealsComponent } from './deals/deals.component';
-import { BrowseComponent } from './browse/browse.component';
 import { LoginComponent } from './customer/login/login.component';
 import { RegisterComponent } from './customer/register/register.component';
 import { CustomerdetailsComponent } from './customer/customerdetails/customerdetails.component';
@@ -35,7 +34,6 @@ import { ReceiptComponent } from './receipt/receipt.component';
     HomeComponent,
     DetailsComponent,
     DealsComponent,
-    BrowseComponent,
     LoginComponent,
     RegisterComponent,
     CustomerdetailsComponent,

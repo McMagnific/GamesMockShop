@@ -51,7 +51,7 @@ export class CustomerService {
 
   }
 
-  getUser(id: number){
+  getUser(id: number | undefined){
    return this.http.get<UserInformation>("https://localhost:5001/api/customer/user/" + id);
   }
 }

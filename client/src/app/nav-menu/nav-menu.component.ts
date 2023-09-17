@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
 import { faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class NavMenuComponent implements OnInit {
   showSideNav = "hidden";
 
 
-  constructor(public customerService: CustomerService) { }
+  constructor(public customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
     this.customerService.currentUser$.subscribe({
@@ -25,5 +26,6 @@ export class NavMenuComponent implements OnInit {
 
   logout() {
     this.customerService.logout();
+    this.router.navigateByUrl("/");
   }
 }

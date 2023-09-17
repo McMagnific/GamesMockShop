@@ -11,7 +11,6 @@ export class HomeComponent {
   games: Game[] = [];
   sportsGames: Game[] = [];
 
-  routerLink: string = "product/details/";
 
   constructor(private gamesService: GamesService) { }
 

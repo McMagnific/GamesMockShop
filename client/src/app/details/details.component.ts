@@ -5,6 +5,7 @@ import { OrderService } from '../services/order.service';
 import { CustomerService } from '../services/customer.service';
 import { Cart } from '../models/cart';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -44,6 +45,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addToCart() {
+
     var cartItem: Cart = {
       customerId: this.userId,
       gameId: this.game.id,
@@ -52,7 +54,14 @@ export class DetailsComponent implements OnInit {
 
     this.orderService.addToCart(cartItem).subscribe({
       next: () => this.router.navigateByUrl('/cart'),
-      error: err => console.log(err)
+      error: err => {
+        if (HttpErrorResponse) {
+          alert("You have to login first to add games into your cart");
+          this.router.navigateByUrl('/login')
+
+        }
+        console.log(err)
+      }
     });
   }
 }

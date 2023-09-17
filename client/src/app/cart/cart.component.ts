@@ -67,9 +67,17 @@ export class CartComponent implements OnInit {
     })
   }
 
+  removeCart(){
+    this.orderService.removeCart(this.userId).subscribe({
+      next: () => "",
+      error: err => console.log(err)
+    })
+  }
+
   onSubmit() {
     this.inputInvalid = false;
     this.orderModel.totalprice = this.totalPrice;
+    this.removeCart();
     this.router.navigateByUrl("/receipt");
     console.log(this.orderModel);
   }

@@ -19,20 +19,23 @@ export class SwiperDirective {
 }
 
 const defaultConfig: SwiperOptions = {
-  slidesPerGroup: 5,
   spaceBetween: 15,
   speed: 1000,
   breakpoints: {
     320: {
+      slidesPerGroup: 2,
       slidesPerView: 2,
     },
     768: {
+      slidesPerGroup: 3,
       slidesPerView: 3,
     },
     960: {
+      slidesPerGroup: 4,
       slidesPerView: 4,
     },
     1280: {
+      slidesPerGroup: 6,
       slidesPerView: 6,
     }
   },

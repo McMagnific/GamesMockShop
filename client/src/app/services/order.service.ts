@@ -17,7 +17,11 @@ export class OrderService {
     return this.http.get<CartItem[]>('https://localhost:5001/api/order/getcart/' + customerId);
   }
 
-  removeCartRecord(cartId: number){
+  removeCartRecord(cartId: number) {
     return this.http.delete('https://localhost:5001/api/order/removecartrecord/' + cartId);
+  } 
+  
+  removeCart(cartId: number) {
+    return this.http.delete('https://localhost:5001/api/order/removecart/' + cartId);
   }
 }

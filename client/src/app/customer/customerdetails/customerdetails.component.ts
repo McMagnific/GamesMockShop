@@ -19,7 +19,7 @@ export class CustomerdetailsComponent implements OnInit {
       error: err => console.log(err)
     })
 
-    this.customerService.getUser(12).subscribe({
+    this.customerService.getUser(this.userId).subscribe({
       next: res => {
       this.userInformation = res,
       console.log(res);
@@ -28,11 +28,4 @@ export class CustomerdetailsComponent implements OnInit {
     })
 
   }
-
-  update(){}
-
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth'});
-}
-
 }
