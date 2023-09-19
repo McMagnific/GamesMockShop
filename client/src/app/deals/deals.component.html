@@ -48,7 +48,7 @@
 
     <swiper-container swiperElement init="false">
         <swiper-slide *ngFor="let game of sportsGames" class="slide">
-            <a (click)="toDetailsPage(game.id)">
+            <a [routerLink]="'product/details/' + game.id">
                 <img width="100%" [src]="game.image_link"
                     onerror="this.onerror=null; this.src='assets/images/placeholdersquare/image-placeholder-500x500.jpg'"
                     alt="randomized image">

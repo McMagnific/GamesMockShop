@@ -20,7 +20,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<Game>>> GetGames()
         {
             var games = await _dataContext.Games.ToListAsync();
-            return Ok(games);
+            return games;
 
         }
 
@@ -28,7 +28,7 @@ namespace API.Controllers
         public async Task<ActionResult<Game>> GetGame(int id)
         {
             var game = await _dataContext.Games.FindAsync(id);
-            return game == null ? NotFound() : Ok(game);
+            return game == null ? NotFound() : game;
 
         }
 

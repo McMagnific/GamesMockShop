@@ -7,21 +7,24 @@ import { Cart, CartItem } from '../models/cart';
 })
 export class OrderService {
 
+  baseURL = "http://localhost:5000/api/";
+
+
   constructor(private http: HttpClient) { }
 
   addToCart(game: Cart) {
-    return this.http.post<Cart>('https://localhost:5001/api/order/addtocart', game);
+    return this.http.post<Cart>(this.baseURL + 'order/addtocart', game);
   }
 
   getCart(customerId: number) {
-    return this.http.get<CartItem[]>('https://localhost:5001/api/order/getcart/' + customerId);
+    return this.http.get<CartItem[]>(this.baseURL + 'order/getcart/' + customerId);
   }
 
   removeCartRecord(cartId: number) {
-    return this.http.delete('https://localhost:5001/api/order/removecartrecord/' + cartId);
+    return this.http.delete(this.baseURL + 'order/removecartrecord/' + cartId);
   } 
   
   removeCart(cartId: number) {
-    return this.http.delete('https://localhost:5001/api/order/removecart/' + cartId);
+    return this.http.delete(this.baseURL + 'order/removecart/' + cartId);
   }
 }

@@ -7,6 +7,8 @@ import { BehaviorSubject, map } from 'rxjs';
   providedIn: 'root'
 })
 export class CustomerService {
+  baseURL = "http://localhost:5000/api/";
+
 
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
@@ -14,7 +16,7 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   login(model: User) {
-    return this.http.post<User>('https://localhost:5001/api/customer/login', model).pipe(
+    return this.http.post<User>(this.baseURL + 'customer/login', model).pipe(
       map((response: User) => {
         const user = response;
 
@@ -27,7 +29,7 @@ export class CustomerService {
     );
   }
   register(model: User) {
-    return this.http.post<User>('https://localhost:5001/api/customer/register', model).pipe(
+    return this.http.post<User>(this.baseURL + 'customer/register', model).pipe(
       map((response: User) => {
         const user = response;
 
@@ -52,6 +54,6 @@ export class CustomerService {
   }
 
   getUser(id: number | undefined){
-   return this.http.get<UserInformation>("https://localhost:5001/api/customer/user/" + id);
+   return this.http.get<UserInformation>(this.baseURL + "customer/user/" + id);
   }
 }

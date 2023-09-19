@@ -22,7 +22,7 @@ export class HomeComponent {
 
     });
 
-    this.gamesService.getGamesByGenre("sport").subscribe({
+    this.gamesService.getGamesByGenre("Sport").subscribe({
       next: res => this.sportsGames = res,
       error: err => console.log(err),
 

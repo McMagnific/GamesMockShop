@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 builder.Services.AddScoped<ITokenService, TokenService>();
@@ -34,14 +34,15 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-
-app.UseCors(policybuilder => policybuilder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+app.UseCors(policybuilder => policybuilder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
 
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
 
 app.Run();
