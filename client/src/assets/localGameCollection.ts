@@ -14,7 +14,7 @@
   //   title: "Remnant 2",
   //   description: "Best Game of the Year",
   //   price: 49.99,
-  //   image_link: "assets/images/placeholdersquare/remnant2square.avif"
+  //   image_link: "assets/images/placeholdersquare/remnant2square.webp"
 
   // },
   // {
@@ -22,14 +22,14 @@
   //   title: "Mortal Kombat 1",
   //   description: "Best Game of the Year",
   //   price: 74.99,
-  //   image_link: "assets/images/placeholdersquare/mk1square.avif"
+  //   image_link: "assets/images/placeholdersquare/mk1square.webp"
   // },
   // {
   //   id: 4,
   //   title: "Tower Of Fantasy",
   //   description: "Best Game of the Year",
   //   price: 0.00,
-  //   image_link: "assets/images/placeholdersquare/toweroffantasysquare.avif"
+  //   image_link: "assets/images/placeholdersquare/toweroffantasysquare.webp"
 
   // },
   // {
@@ -37,7 +37,7 @@
   //   title: "Apex Legends",
   //   description: "Best Game of the Year",
   //   price: 0.00,
-  //   image_link: "assets/images/placeholdersquare/apexsquare.avif"
+  //   image_link: "assets/images/placeholdersquare/apexsquare.webp"
 
   // },
   // {
@@ -46,14 +46,14 @@
   //   title: "Madden 24",
   //   description: "Best Game of the Year",
   //   price: 79.99,
-  //   image_link: "assets/images/placeholdersquare/madden24square.avif"
+  //   image_link: "assets/images/placeholdersquare/madden24square.webp"
   // }, {
 
   //   id: 7,
   //   title: "Baldurs Gate 3",
   //   description: "Best Game of the Year",
   //   price: 69.99,
-  //   image_link: "assets/images/placeholdersquare/bg3square.avif"
+  //   image_link: "assets/images/placeholdersquare/bg3square.webp"
   // },
   // {
 
@@ -61,7 +61,7 @@
   //   title: "Red Dead Redemption",
   //   description: "Best Game of the Year",
   //   price: 49,99,
-  //   image_link: "assets/images/placeholdersquare/reddeadredemptionsquare.avif"
+  //   image_link: "assets/images/placeholdersquare/reddeadredemptionsquare.webp"
   // }, {
 
   //   id: 9,
@@ -75,6 +75,6 @@
   //   title: "Wayfinder",
   //   description: "Best Game of the Year",
   //   price: 19.99,
-  //   image_link: "assets/images/placeholdersquare/wayfindersquare.avif"
+  //   image_link: "assets/images/placeholdersquare/wayfindersquare.webp"
   // },
   // ];

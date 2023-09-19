@@ -39,6 +39,17 @@ namespace API.Controllers
             var games = await _dataContext.Games.Where(games => games.Genre.Contains(genre)).ToListAsync();
             return games;
 
+
+        }
+        [HttpPost("addgame")]
+        public async Task<ActionResult<Game>> AddGame(Game game)
+        {
+            
+            _dataContext.Games.Add(game);
+            await _dataContext.SaveChangesAsync();
+
+            return game;
+
         }
     }
 }

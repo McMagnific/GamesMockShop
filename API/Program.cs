@@ -9,6 +9,8 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddCors();
+
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
@@ -30,11 +32,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         }
 );
 
-builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseCors(policybuilder => policybuilder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001"));
+app.UseCors(policybuilder => policybuilder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:5000"));
 
 app.UseAuthentication();
 
